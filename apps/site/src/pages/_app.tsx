@@ -1,17 +1,17 @@
+import { createTheme, MantineProvider } from '@mantine/core';
 import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.css';
+import '@mantine/core/styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
+  
+  const theme = createTheme({
+    /** Put your mantine theme override here */
+  });
+
   return (
-    <>
-      <Head>
-        <title>Welcome to site!</title>
-      </Head>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
-    </>
+     <MantineProvider theme={theme}>
+      <Component {...pageProps} />
+    </MantineProvider>
   );
 }
 
